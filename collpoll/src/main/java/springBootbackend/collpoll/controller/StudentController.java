@@ -89,12 +89,6 @@ public class StudentController {
 			return new ResponseEntity("please enter a valid mobile number",HttpStatus.BAD_REQUEST);
 			
 		}
-		if(studentRepository.existsByPhoneno(studentDetails.getPhoneno()))
-		{
-			new ExceptionFound("the phone nuber already exists for a student");
-			return new ResponseEntity("the phone nuber already exists for a student",HttpStatus.BAD_REQUEST);
-			
-		}
 		
 		Student updateStudentDetails = studentRepository.findById(id)
 				.orElseThrow(()-> new ExceptionFound("employee does not exist with given id:" + id));
